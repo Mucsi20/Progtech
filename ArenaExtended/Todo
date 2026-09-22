@@ -1,0 +1,7 @@
+Each character has one item.
+Duel winning character destroys it's own item, and equips it's foe's item
+
+Item            Effect
+ShortSword      +10 damage
+Greataxe        +100% damage
+TowerShield     -10 incoming damage (min damage: 0)
