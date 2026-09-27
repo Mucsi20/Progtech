@@ -1,45 +1,33 @@
 package Test;
 
 import Mucsi.Circle;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CircleTest {
-    @Test
-    void AreaTest(){
-        int radius1 = 1;
-        int radius2 = 2;
-        int radius3 = 15;
+    private static final double DELTA = 0.0001;
 
-        Circle circle1 = new Circle(0,0,radius1);
-        Circle circle2 = new Circle(0,0,radius2);
-        Circle circle3 = new Circle(0,0,radius3);
-
-        double area1 = Math.pow(radius1, 2) * Math.PI;
-        double area2 = Math.pow(radius2, 2) * Math.PI;
-        double area3 = Math.pow(radius3, 2) * Math.PI;
-
-        assertEquals(area1, circle1.GetArea());
-        assertEquals(area2, circle2.GetArea());
-        assertEquals(area3, circle3.GetArea());
+    @ParameterizedTest(name = "Circle radius: {0}, area: {1}")
+    @CsvSource({
+            "1, 3.14159",
+            "2, 12.56637",
+            "15, 706.85834"
+    })
+    void testGetArea(int radius, double expectedArea) {
+        Circle circle = new Circle(0, 0, radius);
+        assertEquals(expectedArea, circle.getArea(), DELTA);
     }
-    @Test
-    void PerimeterTest(){
-        int radius1 = 1;
-        int radius2 = 2;
-        int radius3 = 15;
 
-        Circle circle1 = new Circle(0,0,radius1);
-        Circle circle2 = new Circle(0,0,radius2);
-        Circle circle3 = new Circle(0,0,radius3);
-
-        double peri1 = radius1 * 2 * Math.PI;
-        double peri2 = radius2 * 2 * Math.PI;
-        double peri3 = radius3 * 2 * Math.PI;
-
-        assertEquals(peri1, circle1.GetPerimeter());
-        assertEquals(peri2, circle2.GetPerimeter());
-        assertEquals(peri3, circle3.GetPerimeter());
+    @ParameterizedTest(name = "Circle radius: {0}, perimeter: {1}")
+    @CsvSource({
+            "1, 6.28318",
+            "2, 12.56637",
+            "15, 94.24777"
+    })
+    void testGetPerimeter(int radius, double expectedPerimeter) {
+        Circle circle = new Circle(0, 0, radius);
+        assertEquals(expectedPerimeter, circle.getPerimeter(), DELTA);
     }
 }

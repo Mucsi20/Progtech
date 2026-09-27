@@ -10,15 +10,15 @@ public abstract class Shape {
         this.radius = r;
     }
 
-    public double GetAreaToPerimeterRatio(){
-        return GetArea() / GetPerimeter();
+    public double getAreaToPerimeterRatio(){
+        return getArea() / getPerimeter();
     }
 
-    public abstract double GetArea();
-    public abstract double GetPerimeter();
+    public abstract double getArea();
+    public abstract double getPerimeter();
 
     @Override
     public String toString() {
-        return this.getClass().getName() + "\n\tOrigin: " + origin + "\n\tRadius: " + radius + "\n\tArea: " + GetArea() + "\n\tPerimeter: " + GetPerimeter() + "\n\tArea to perimeter ratio: "+ GetAreaToPerimeterRatio();
+        return this.getClass().getName() + "\n\tOrigin: " + origin + "\n\tRadius: " + radius + "\n\tArea: " + getArea() + "\n\tPerimeter: " + getPerimeter() + "\n\tArea to perimeter ratio: "+ getAreaToPerimeterRatio();
     }
 }

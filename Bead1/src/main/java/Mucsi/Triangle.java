@@ -3,12 +3,12 @@ package Mucsi;
 public class Triangle extends Shape{
     public Triangle(int x, int y, int r){ super(x,y,r); }
     @Override
-    public double GetArea() {
+    public double getArea() {
         return (Math.sqrt(3) / 4) * radius * radius;
     }
 
     @Override
-    public double GetPerimeter() {
+    public double getPerimeter() {
         return 3 * radius;
     }
 }

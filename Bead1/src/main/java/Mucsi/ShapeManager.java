@@ -40,17 +40,17 @@ public class ShapeManager {
         return ShapeList;
     }
 
-    public void PrintShapes(){
+    public void printShapes(){
         for (Shape shape : this.shapeList){
             System.out.println(shape);
         }
     }
 
-    public void ClosestAreaToPerimeter(){
+    public void closestAreaToPerimeter(){
         Shape closestShape = shapeList.getFirst();
-        double closestValue = shapeList.getFirst().GetAreaToPerimeterRatio();
+        double closestValue = shapeList.getFirst().getAreaToPerimeterRatio();
         for (Shape shape : this.shapeList){
-            double ratio = shape.GetAreaToPerimeterRatio();
+            double ratio = shape.getAreaToPerimeterRatio();
             if (Math.abs(1 - ratio) < Math.abs(1 - closestValue)){
                 closestShape = shape;
                 closestValue = ratio;
