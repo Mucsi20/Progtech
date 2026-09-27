@@ -19,6 +19,6 @@ public abstract class Shape {
 
     @Override
     public String toString() {
-        return this.getClass().getName() + "\n\tOrigin: " + origin + "\n\tRadius: " + radius + "\n\tArea: " + GetArea() + "\n\tPerimeter: " + GetPerimeter();
+        return this.getClass().getName() + "\n\tOrigin: " + origin + "\n\tRadius: " + radius + "\n\tArea: " + GetArea() + "\n\tPerimeter: " + GetPerimeter() + "\n\tArea to perimeter ratio: "+ GetAreaToPerimeterRatio();
     }
 }
