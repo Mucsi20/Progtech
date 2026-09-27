@@ -38,8 +38,8 @@ public class CircleTest {
         double peri2 = radius2 * 2 * Math.PI;
         double peri3 = radius3 * 2 * Math.PI;
 
-        assertEquals(peri1, circle1.GetArea());
-        assertEquals(peri2, circle2.GetArea());
-        assertEquals(peri3, circle3.GetArea());
+        assertEquals(peri1, circle1.GetPerimeter());
+        assertEquals(peri2, circle2.GetPerimeter());
+        assertEquals(peri3, circle3.GetPerimeter());
     }
 }
