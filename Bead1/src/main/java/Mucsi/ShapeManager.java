@@ -10,10 +10,10 @@ public class ShapeManager {
     private final ArrayList<Shape> shapeList;
 
     public ShapeManager(String path){
-        this.shapeList = GenerateShapes(path);
+        this.shapeList = generateShapes(path);
     }
 
-    public static ArrayList<Shape> GenerateShapes(String path){
+    private static ArrayList<Shape> generateShapes(String path){
         ArrayList<Shape> ShapeList = new ArrayList<>();
         try {
             List<String> rows = Files.readAllLines(Paths.get(path));
