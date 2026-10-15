@@ -15,6 +15,7 @@ public class KeyboardGUI {
     public KeyboardGUI(){
         frame = new JFrame("QWERTY");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setFocusableWindowState(false);
         frame.setBounds(1920/2-width/2,1080/2-height/2,width, height);
 
         textPanel = new JPanel();
@@ -32,6 +33,7 @@ public class KeyboardGUI {
         while (i < 10){
             JButton newButton = new JButton(String.valueOf(qwerty.charAt(i)));
             newButton.setPreferredSize(new Dimension(50,50));
+            newButton.setFocusable(false);
             row1.add(newButton);
             i++;
         }
