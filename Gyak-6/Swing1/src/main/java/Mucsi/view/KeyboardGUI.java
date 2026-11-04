@@ -1,8 +1,6 @@
 package Mucsi.view;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-import javax.swing.plaf.basic.BasicBorders;
 import java.awt.*;
 
 public class KeyboardGUI {
