@@ -1,0 +1,15 @@
+services:
+  mysql:
+    image: mysql:8.0 # MySQL docker image
+    ports:
+      - "3306:3306" # Port for the database
+    environment: 
+      MYSQL_ROOT_PASSWORD: root # Root password for the database
+    command:
+      - --lower_case_table_names=1 # Lowercase table names, not strictly necessary
+    volumes:
+      - highscores-data:/var/lib/mysql # Volume for the database
+      - ./highscores_db.sql:/docker-entrypoint-initdb.d/highscores_db.sql:ro # Initialize the database with the SQL file
+
+volumes: 
+  highscores-data:
