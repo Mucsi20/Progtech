@@ -26,6 +26,11 @@ public class GameGrid extends JPanel {
                     gameLogic.clickCell(row, col);
                     refreshGrid();
                     onMoveComplete.run();
+                    if (allCellsComplete()){
+                        disableGrid();
+                        GamePlayPanel parent = (GamePlayPanel) SwingUtilities.getAncestorOfClass(GamePlayPanel.class, this);
+                        parent.showVictoryOverlay(gameLogic.getWinner());
+                    }
                 });
 
                 cells[r][c] = cell;
@@ -41,6 +46,24 @@ public class GameGrid extends JPanel {
                         gameLogic.getCellValue(r, c),
                         gameLogic.getCellOwner(r, c)
                 );
+            }
+        }
+    }
+
+    private Boolean allCellsComplete(){
+        for (GridCell[] cellRow : cells){
+            for (GridCell cell : cellRow){
+                if (!cell.getText().equals("4")){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    private void disableGrid(){
+        for (GridCell[] cellRow : cells){
+            for (GridCell cell : cellRow){
+                cell.setEnabled(false);
             }
         }
     }

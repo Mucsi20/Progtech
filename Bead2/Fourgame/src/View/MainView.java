@@ -30,4 +30,7 @@ public class MainView {
         frame.revalidate();
         frame.repaint();
     }
+    public JFrame getFrame(){
+        return this.frame;
+    }
 }

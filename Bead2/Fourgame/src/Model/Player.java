@@ -1,10 +1,14 @@
 package Model;
 
+import java.awt.*;
+
 public class Player {
     private final String name;
     private int score;
-    public Player(String name){
+    private Color color;
+    public Player(String name, Color color){
         this.name = name;
+        this.color = color;
     }
     public String getName(){
         return this.name;
@@ -14,5 +18,8 @@ public class Player {
     }
     public void increaseScore(){
         this.score++;
+    }
+    public Color getColor(){
+        return this.color;
     }
 }
