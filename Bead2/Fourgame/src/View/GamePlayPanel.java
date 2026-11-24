@@ -6,13 +6,29 @@ import Model.Player;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The primary gameplay screen displaying player scores, navigation controls,
+ * the game grid, and a victory overlay upon game completion.
+ */
 public class GamePlayPanel extends JPanel {
+    /** The main application view controller. */
     private final MainView mainView;
+    /** The first player. */
     private final Player player1;
+    /** The second player. */
     private final Player player2;
+    /** The width and height of the square game grid. */
     private final int size;
+    /** The glass-pane overlay displayed when a player wins. */
     private final JPanel victoryOverlay;
 
+    /**
+     * Constructs the gameplay view for a new match.
+     *
+     * @param mainView    the main application view controller
+     * @param size        the grid dimension (size x size)
+     * @param playerNames an array containing Player 1's and Player 2's names
+     */
     public GamePlayPanel(MainView mainView, int size, String[] playerNames) {
         this.mainView = mainView;
         this.size = size;
@@ -67,6 +83,12 @@ public class GamePlayPanel extends JPanel {
         this.add(topPanel, BorderLayout.NORTH);
         this.add(centerWrapper, BorderLayout.CENTER);
     }
+
+    /**
+     * Displays a glass-pane overlay announcing the winning player with a button to start a rematch.
+     *
+     * @param winner the {@link Player} who won the game
+     */
     public void showVictoryOverlay(Player winner){
         victoryOverlay.setOpaque(false);
 

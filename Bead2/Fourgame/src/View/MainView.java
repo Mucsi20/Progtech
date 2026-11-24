@@ -3,10 +3,18 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Manages the primary application {@link JFrame} and handles switching between UI panels.
+ */
 public class MainView {
     private final JFrame frame;
     private final double screenRate = 0.667;
     private JPanel currentView;
+
+    /**
+     * Initializes the main application window sized proportionally to the screen
+     * and displays the initial {@link MenuPanel}.
+     */
     public MainView()
     {
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -21,6 +29,12 @@ public class MainView {
         SetView(menuView);
         frame.setVisible(true);
     }
+
+    /**
+     * Replaces the currently displayed panel in the window with a new view.
+     *
+     * @param view the {@link JPanel} to display
+     */
     public void SetView(JPanel view){
         if (currentView != null){
             frame.remove(currentView);
@@ -30,6 +44,12 @@ public class MainView {
         frame.revalidate();
         frame.repaint();
     }
+
+    /**
+     * Returns the underlying application frame.
+     *
+     * @return the main {@link JFrame}
+     */
     public JFrame getFrame(){
         return this.frame;
     }

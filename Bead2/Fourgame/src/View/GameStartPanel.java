@@ -3,8 +3,16 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Setup screen where players enter their names and choose a board size before starting a match.
+ */
 public class GameStartPanel extends JPanel {
 
+    /**
+     * Constructs the game start panel with player name inputs, board size buttons, and a back button.
+     *
+     * @param mainView the main application view controller
+     */
     public GameStartPanel(MainView mainView){
         JTextField[] playerNameFields = createPlayerNameFields();
 
@@ -20,6 +28,13 @@ public class GameStartPanel extends JPanel {
 
         initLayout(buttons, playerNameFields);
     }
+
+    /**
+     * Arranges the player name text fields and action buttons vertically within the panel.
+     *
+     * @param buttons          the array of size-selection and navigation buttons
+     * @param playerNameFields the text fields for Player 1 and Player 2 names
+     */
     private void initLayout(JButton[] buttons, JTextField[] playerNameFields){
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         Dimension buttonSize = new Dimension(250, 60);
@@ -47,6 +62,12 @@ public class GameStartPanel extends JPanel {
         }
         this.add(Box.createVerticalGlue());
     }
+
+    /**
+     * Creates styled text fields with default names for both players.
+     *
+     * @return a two-element array containing the Player 1 and Player 2 {@link JTextField} components
+     */
     private JTextField[] createPlayerNameFields(){
         JTextField player1Field = new JTextField("Player 1",10);
         JTextField player2Field = new JTextField("Player 2", 10);

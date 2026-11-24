@@ -5,11 +5,24 @@ import Model.GameLogic;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * A Swing panel displaying the interactive grid of {@link GridCell} buttons.
+ */
 public class GameGrid extends JPanel {
+    /** The number of rows and columns in the grid. */
     private final int size;
+    /** The 2D array of visual cell buttons. */
     private final GridCell[][] cells;
+    /** The game logic controller managing board state. */
     private final GameLogic gameLogic;
 
+    /**
+     * Constructs the visual game grid and wires cell click listeners to the game logic.
+     *
+     * @param size           the number of rows and columns in the grid
+     * @param gameLogic      the {@link GameLogic} instance managing board state
+     * @param onMoveComplete a callback executed after each cell click to update UI elements
+     */
     public GameGrid(int size, GameLogic gameLogic, Runnable onMoveComplete){
         this.size = size;
         this.gameLogic = gameLogic;
@@ -39,6 +52,9 @@ public class GameGrid extends JPanel {
         }
     }
 
+    /**
+     * Updates every cell button in the grid to reflect the current state in {@link GameLogic}.
+     */
     private void refreshGrid(){
         for (int r = 0; r < size; r++){
             for (int c = 0; c < size; c++){
@@ -50,6 +66,11 @@ public class GameGrid extends JPanel {
         }
     }
 
+    /**
+     * Checks whether all cells on the visual grid have reached a value of 4.
+     *
+     * @return {@code true} if every cell displays "4", {@code false} otherwise
+     */
     private Boolean allCellsComplete(){
         for (GridCell[] cellRow : cells){
             for (GridCell cell : cellRow){
@@ -60,6 +81,10 @@ public class GameGrid extends JPanel {
         }
         return true;
     }
+
+    /**
+     * Disables all cell buttons in the grid once the game ends.
+     */
     private void disableGrid(){
         for (GridCell[] cellRow : cells){
             for (GridCell cell : cellRow){
