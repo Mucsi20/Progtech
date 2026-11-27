@@ -1,7 +1,5 @@
 package Model;
 
-import View.GridCell;
-
 /**
  * Manages the core state, rules, turns, and scoring of the game board.
  */
@@ -32,16 +30,16 @@ public class GameLogic {
      * Processes a move at the given grid coordinates by incrementing the clicked cell
      * and its orthogonal neighbors, then advancing the turn if unowned cells remain.
      *
-     * @param r the row index of the clicked cell
-     * @param c the column index of the clicked cell
+     * @param rowIndex the row index of the clicked cell
+     * @param columnIndex the column index of the clicked cell
      */
-    public void clickCell(int r, int c){
-        gridCells[r][c].increaseValue();
+    public void clickCell(int rowIndex, int columnIndex){
+        gridCells[rowIndex][columnIndex].increaseValue();
 
-        if (r > 0) {gridCells[r - 1][c].increaseValue();}
-        if (r < size - 1) {gridCells[r + 1][c].increaseValue();}
-        if (c > 0) {gridCells[r][c - 1].increaseValue();}
-        if (c < size - 1) {gridCells[r][c + 1].increaseValue();}
+        if (rowIndex > 0) {gridCells[rowIndex - 1][columnIndex].increaseValue();}
+        if (rowIndex < size - 1) {gridCells[rowIndex + 1][columnIndex].increaseValue();}
+        if (columnIndex > 0) {gridCells[rowIndex][columnIndex - 1].increaseValue();}
+        if (columnIndex < size - 1) {gridCells[rowIndex][columnIndex + 1].increaseValue();}
 
         if (!allCellsOwned()){
             currentPlayerIndex = 1 - currentPlayerIndex;
@@ -51,12 +49,12 @@ public class GameLogic {
     /**
      * Returns the numeric value of the cell at the specified position.
      *
-     * @param r the row index
-     * @param c the column index
+     * @param rowIndex the row index
+     * @param columnIndex the column index
      * @return the current value of the cell
      */
-    public int getCellValue(int r, int c){
-        return gridCells[r][c].getValue();
+    public int getCellValue(int rowIndex, int columnIndex){
+        return gridCells[rowIndex][columnIndex].getValue();
     }
 
     /**
